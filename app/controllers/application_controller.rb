@@ -1,5 +1,9 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permited_parameters, if: :devise_controller?
+  
+  def home
+  end
+
 
   protected
 

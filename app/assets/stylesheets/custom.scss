@@ -1,0 +1,83 @@
+.tittle{
+    font-size: 3rem;
+    align-self: center;
+}
+.form{
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    max-width: 35rem;
+}
+#formcolums{
+    display: flex;
+    flex-direction: row-reverse
+}
+.is-grouped{
+    align-self: center;
+}
+.box{
+    display: flex !important;
+    flex-direction: column;
+}
+
+/*---------------------------------------------------------- NAV BAR ----------------------------------------------------------  */
+
+.navbar{
+    background-color: #2AE8DA !important;
+    color: white !important;
+
+    .navlogo{
+        height: 70px;
+        width: 80px;
+    }
+    .navbar{
+        color: white;
+    }
+    .navbar-item img{
+        max-height: max-content !important;
+    }
+    .navbar-item:hover{
+        background-color: #2AC4DA !important;
+    }
+    .navbar-link:hover{
+        background-color: #2AC4DA !important;
+    }
+    .navbar-item has-dropdown is-hoverable:hover{
+        background-color: #2AC4DA !important;
+    }
+    #buttons{
+        background-color: #2AE8DA !important;
+    }
+    #drop:hover{
+        background-color: #A3EAE9 !important;
+        color: white;
+    }
+    
+}
+.navbar.is-info .navbar-item.has-dropdown:focus .navbar-link, .navbar.is-info .navbar-item.has-dropdown:hover .navbar-link, .navbar.is-info .navbar-item.has-dropdown.is-active .navbar-link {
+    background-color: #2AC4DA !important;
+    color: #fff;
+}
+
+/*---------------------------------------------------------- FOOTER ----------------------------------------------------------  */
+
+.footer{
+    background-color: #34c4ea4d !important;
+    
+    .footlogo{
+        height: 8rem;
+        width: auto;
+    }
+    .foottittle{
+        color: white;
+        font-size: 5rem;
+        font-variant-caps: petite-caps;
+    }
+    .footer-top{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+}
