@@ -3,6 +3,10 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  # Relationships between roles
+  has_one :admin
+  has_one :client
+  has_one :employee
 
   validates :first_name, presence: true, length: { maximum:50 }
 
