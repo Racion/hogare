@@ -27,11 +27,11 @@
             </div></br>
 
             <div class="field is-grouped">
-                <div class="actions">
-                  <%= f.submit "Registro", id:"formbutton", class:"button is-primary" %>
-                </div>
+              <div class="actions">
+                <%= f.submit "Registro", id:"formbutton", class:"button is-primary" %><br></br>
+                <%= render "devise/shared/links" %>
+              </div>
             </div>
-            
           </div>
         </div>
 
@@ -67,10 +67,7 @@
     </div>
   </div>
 
-
-
 <% end %>
 
-<%= render "devise/shared/links" %>
 
 

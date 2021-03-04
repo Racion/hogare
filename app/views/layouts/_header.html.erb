@@ -36,13 +36,24 @@
       </div>
     </div>
 
-    <div class="navbar-end">
-      <div class="navbar-item" id="buttons">
-        <div class="buttons">
-          <%= link_to 'Registrate', new_user_registration_path, class:"button is-primary"  %>
-          <%= link_to 'Inicia Sesión', new_user_session_path, class:"button is-light" %>
+
+    <% unless current_user.blank? %>
+      <div class="navbar-end" >
+        <div class="navbar-item" id="buttons">
+            <div class="buttons">               
+              <%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete, class:"button is-primary" %>
+            </div>
         </div>
       </div>
-    </div>
+    <% else %>
+      <div class="navbar-end">
+        <div class="navbar-item" id="buttons">
+          <div class="buttons">
+            <%= link_to 'Registrate', new_user_registration_path, class:"button is-primary"  %>
+            <%= link_to 'Inicia Sesión', new_user_session_path, class:"button is-light" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
 </nav>
