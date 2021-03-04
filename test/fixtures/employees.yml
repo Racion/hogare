@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  contract_start: 2021-03-02
+  contract_end: 2021-03-02
+  user_id: one
+
+two:
+  contract_start: 2021-03-02
+  contract_end: 2021-03-02
+  user_id: two
