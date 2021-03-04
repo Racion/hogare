@@ -1,0 +1,59 @@
+<nav class="navbar is-info" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand"  id="buttons" >
+    <a class="navbar-item" href="/"  id="buttons">
+      <img class="navlogo" src="https://media.discordapp.net/attachments/816001549146914886/816001670500712478/Hogare-Logo.png">
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <%=link_to "Inicio", root_path, class:"navbar-item" %>
+
+      <a class="navbar-item">
+        Documentation
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More
+        </a>
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item" id="drop">
+            About
+          </a>
+          <a class="navbar-item" id="drop">
+            Jobs
+          </a>
+          <a class="navbar-item" id="drop">
+            Contact
+          </a>
+          <hr class="navbar-divider">
+          <a class="navbar-item" id="drop">
+            Report an issue
+          </a>
+        </div>
+      </div>
+    </div>
+
+
+    <% unless current_user.blank? %>
+      <div class="navbar-end" >
+        <div class="navbar-item" id="buttons">
+            <div class="buttons">               
+              <%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete, class:"button is-primary" %>
+            </div>
+        </div>
+      </div>
+    <% else %>
+      <div class="navbar-end">
+        <div class="navbar-item" id="buttons">
+          <div class="buttons">
+            <%= link_to 'Registrate', new_user_registration_path, class:"button is-primary"  %>
+            <%= link_to 'Inicia Sesión', new_user_session_path, class:"button is-light" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</nav>
