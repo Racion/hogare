@@ -1,9 +1,17 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permited_parameters, if: :devise_controller?
-  
+
   def home
   end
 
+  def show
+  end
+
+  def new_service
+  end
+
+  def cart
+  end
 
   protected
 
