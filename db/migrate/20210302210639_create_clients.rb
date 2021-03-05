@@ -7,3 +7,4 @@ class CreateClients < ActiveRecord::Migration[6.1]
     end
   end
 end
+#devolver todas las migraciones y acomodar las referencias no user_id solo user

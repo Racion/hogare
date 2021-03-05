@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'application#home'
   
-  get 'application/show'
+  get 'application/profile'
   get 'application/new_service'
   get 'application/cart'
 

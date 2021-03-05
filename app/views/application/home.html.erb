@@ -1,1 +1,7 @@
+<% unless current_user.blank? %>
+    <div class="tittle">
+    ¡Bienvenido! <%= current_user.first_name %>, <%= current_user.last_name %>
+    </div></br>
+<% end %>
+
 <img class="carousel-item" src="https://media.discordapp.net/attachments/816001549146914886/816025223962689626/home-3429674_1920_1.jpg?width=1440&height=618">

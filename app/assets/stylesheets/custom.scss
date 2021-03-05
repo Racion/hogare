@@ -90,3 +90,22 @@
         align-items: center;
     }
 }
+
+/*---------------------------------------------------------- PAGES ----------------------------------------------------------  */
+
+.profile{
+    display: flex;
+}
+.tile.is-parent{
+    padding: 0px !important;
+}
+.notification{
+    border-top-left-radius: 0px !important;
+}
+.panel{
+    width: 12rem;
+    box-shadow: none !important;
+    .panel-heading{
+        border-top-right-radius: 0px !important;
+    }
+}
