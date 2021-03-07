@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'orders/new'
+  get 'orders/show'
+  get 'orders/create'
+  get 'orders/destroy'
+  get 'orders/edit'
   devise_for :users
   root 'application#home'
   
