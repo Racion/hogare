@@ -1,6 +1,7 @@
 class AddressesController < ApplicationController
   before_action :authenticate_user!
-
+  #TODO: Cambiar de current_user a client id ya que las relaciones van con el client id no con current_user
+  # TODO: obtener el id de la tabla cliente segun el current_user para poder guardarlo con su referencia
   def index 
     @addresses = Address.where('client_id = ?', current_user.id) 
   end
