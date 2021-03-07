@@ -12,12 +12,17 @@
       </thead>
       <tbody>
         <%= @addresses.each do |address|%>
-        <tr>
-        # <td><%= address.address_description%></td>
-        <td><%= address.address%></td>
-        <td><%= address.address_complement%></td>
-        <td><%= address.phone%></td>
-        </tr>
+          <tr>
+            <td><%= address.address_description%></td>
+            <td><%= address.address%></td>
+            <td><%= address.address_complement%></td>
+            <td><%= address.phone%></td>
+            <td>
+              <%= link_to edit_address_path(address.id), class: 'button is-success is-small' do %>
+                <i class="fas fa-indent"></i>
+              <% end %>
+            </td>
+          </tr>
         <% end %>
       </tbody>
     </table>

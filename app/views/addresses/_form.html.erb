@@ -1,0 +1,21 @@
+<%= form_with(model: @address) do |f|%>
+  <div class="field">
+    <%= f.label :address_description, 'Descripción de la Dirección', class: 'label' %>
+    <%= f.text_area :address_description, class: 'input', required: true, placeholder: 'Descripción...' %>
+  </div>
+  <div class="field">
+    <%= f.label :address, 'Dirección', class: 'label' %>
+    <%= f.text :address, class: 'input', required: true, placeholder: 'Dirección' %>
+  </div>
+  <div class="field">
+    <%= f.label :address_complement, 'Apto, Torre, etc', class: 'label' %>
+    <%= f.text :address_complement, class: 'input', required: true, placeholder: 'Complemento' %>
+  </div>
+  <div class="field">
+    <%= f.label :phone,'Teléfono', class: 'label' %>
+    <%= f.number :phone, class: 'input', required: true %>
+  </div>
+  <div class="actions">
+    <%= f.submit class: 'button is-dark' %>
+  </div>
+<% end %>

@@ -1,12 +1,12 @@
 class AddressesController < ApplicationController
   before_action :authenticate_user!
 
-  def new
-    @address = Address.new
-  end
-
   def index 
     @addresses = current_user.address
+  end
+
+  def new
+    @address = Address.new
   end
 
   def create 
@@ -17,6 +17,21 @@ class AddressesController < ApplicationController
     else
       flash.now[:danger] = 'Información invalida'
       render 'new'
+    end
+  end
+
+  def edit 
+    @address = current_user.address.find(params[:id])
+  end
+
+  def update 
+    @address = current_user.address.find(params[:id])
+    if @address.update(address_params)
+      flash[:success] = 'Dirección actualizada.'
+      redirect_to 'index'
+    else
+      flash.now[:danger] = 'Información Invalida.'
+      render 'edit'
     end
   end
 
