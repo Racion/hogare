@@ -3,9 +3,9 @@
 one:
   order_status: MyString
   order_total_value: 
-  client_id: one
+  client: one
 
 two:
   order_status: MyString
   order_total_value: 
-  client_id: two
+  client: two

@@ -10,64 +10,64 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_03_195839) do
+ActiveRecord::Schema.define(version: 2021_03_07_193729) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "address_description", default: "", null: false
     t.string "address", default: "", null: false
     t.string "address_complement", default: ""
-    t.integer "phone", null: false
-    t.integer "client_id_id", null: false
+    t.integer "phone", default: 0, null: false
+    t.integer "client_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["client_id_id"], name: "index_addresses_on_client_id_id"
+    t.index ["client_id"], name: "index_addresses_on_client_id"
   end
 
   create_table "admins", force: :cascade do |t|
-    t.integer "user_id_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id_id"], name: "index_admins_on_user_id_id"
+    t.index ["user_id"], name: "index_admins_on_user_id"
   end
 
   create_table "clients", force: :cascade do |t|
-    t.integer "user_id_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id_id"], name: "index_clients_on_user_id_id"
+    t.index ["user_id"], name: "index_clients_on_user_id"
   end
 
   create_table "employees", force: :cascade do |t|
+    t.integer "user_id", null: false
     t.date "contract_start", null: false
     t.date "contract_end"
-    t.integer "user_id_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id_id"], name: "index_employees_on_user_id_id"
+    t.index ["user_id"], name: "index_employees_on_user_id"
   end
 
   create_table "orders", force: :cascade do |t|
-    t.string "order_status", default: "Created", null: false
-    t.integer "order_total_value"
-    t.integer "client_id_id", null: false
+    t.string "order_status", default: "Creada", null: false
+    t.integer "order_total_value", default: 0
+    t.integer "client_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["client_id_id"], name: "index_orders_on_client_id_id"
+    t.index ["client_id"], name: "index_orders_on_client_id"
   end
 
   create_table "services", force: :cascade do |t|
     t.string "service_description", default: "", null: false
     t.date "service_date", null: false
     t.integer "price", default: 60000, null: false
-    t.string "service_status", default: "Created", null: false
-    t.integer "order_id_id", null: false
-    t.integer "employee_id_id", null: false
-    t.integer "client_id_id", null: false
+    t.string "service_status", default: "Creado", null: false
+    t.integer "order_id", null: false
+    t.integer "employee_id", null: false
+    t.integer "client_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["client_id_id"], name: "index_services_on_client_id_id"
-    t.index ["employee_id_id"], name: "index_services_on_employee_id_id"
-    t.index ["order_id_id"], name: "index_services_on_order_id_id"
+    t.index ["client_id"], name: "index_services_on_client_id"
+    t.index ["employee_id"], name: "index_services_on_employee_id"
+    t.index ["order_id"], name: "index_services_on_order_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -87,12 +87,12 @@ ActiveRecord::Schema.define(version: 2021_03_03_195839) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "addresses", "client_ids"
-  add_foreign_key "admins", "user_ids"
-  add_foreign_key "clients", "user_ids"
-  add_foreign_key "employees", "user_ids"
-  add_foreign_key "orders", "client_ids"
-  add_foreign_key "services", "client_ids"
-  add_foreign_key "services", "employee_ids"
-  add_foreign_key "services", "order_ids"
+  add_foreign_key "addresses", "clients"
+  add_foreign_key "admins", "users"
+  add_foreign_key "clients", "users"
+  add_foreign_key "employees", "users"
+  add_foreign_key "orders", "clients"
+  add_foreign_key "services", "clients"
+  add_foreign_key "services", "employees"
+  add_foreign_key "services", "orders"
 end
