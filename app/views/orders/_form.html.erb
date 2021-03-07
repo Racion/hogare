@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="box">
+        <div class="form">
+            <h1 class="tittle">Orden</h1></br>
+            <%= form_with(model: @orders) do |form| %>
+
+                <div class="field">
+                    <%= form.label "Status", class: 'label' %>
+                    <%= form.select :order_status, [['Aprovado', 'Aprovado'], ['Sin Aprovar', 'Sin Aprovar']], class:"select is-rounded", selected:'Status' %>
+                </div>
+
+                <div class="field">
+                    <%= form.label "Valor", class:"label"%>
+                    <%= form.text_area :order_total_value, class:"input", required: true, placeholder: "Valor..." %>
+                </div>
+                
+                <div class="field">
+                    <%= form.label "ID Cliente", class:"label"%>
+                    <%= form.text_area :client_id, class:"input", required: true, placeholder: "ID Cliente..." %>
+                </div>
+
+                <div class="actions">
+                    <div class="control">
+                        <%= form.submit "Hacer orden", class:"button is-link" %>
+                    </div>
+                </div>
+
+            <% end %>
+        </div>
+    </div>
+</div>
