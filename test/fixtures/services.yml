@@ -2,18 +2,18 @@
 
 one:
   service_description: MyString
-  service_date: 2021-03-03
-  price: 
+  service_date: 2021-03-07
+  price: 1
   service_status: MyString
-  order_id: one
-  employee_id: one
-  client_id: one
+  order: one
+  employee: one
+  client: one
 
 two:
   service_description: MyString
-  service_date: 2021-03-03
-  price: 
+  service_date: 2021-03-07
+  price: 1
   service_status: MyString
-  order_id: two
-  employee_id: two
-  client_id: two
+  order: two
+  employee: two
+  client: two
