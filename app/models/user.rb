@@ -19,7 +19,7 @@ class User < ApplicationRecord
 
   def create_client  
     if employee.blank? && admin.blank?
-      client ||= Client.create(user: id)
+      client ||= Client.create(user_id: id)
     end
   end
 
