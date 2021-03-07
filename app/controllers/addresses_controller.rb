@@ -2,9 +2,7 @@ class AddressesController < ApplicationController
   before_action :authenticate_user!
 
   def index 
-    @usuario = current_user.client
-    #TODO: Revisar la relacion entre usuario y cliente para poder traer el id del current_user que matchea el cliente y buscar direcciones por ese id
-    @addresses = Address.where('client_id = ?', @usuario.id) 
+    @addresses = Address.where('client_id = ?', current_user.id) 
   end
 
   def new
@@ -12,7 +10,7 @@ class AddressesController < ApplicationController
   end
 
   def create 
-    @address = current_user.address.create(address_params)
+    @address = Address.create(address_params)
     if @address.save
       flash[:success] = 'La dirección fue creada exitosamente.'
       redirect_to 'index'
@@ -40,6 +38,6 @@ class AddressesController < ApplicationController
 
   protected
   def address_params
-    params.require(:address).permit(:address_description, :address, :address_complement, :phone, :client_id)
+    params.require(:address).permit(:address_description, :address, :address_complement, :phone, :client_id :current_user)
   end
 end
