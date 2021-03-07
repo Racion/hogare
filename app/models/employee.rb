@@ -1,6 +1,3 @@
 class Employee < ApplicationRecord
-  belongs_to :user_id
-
-  #Relationships
-  has_many :service
+  belongs_to :user
 end

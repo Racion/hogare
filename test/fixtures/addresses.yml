@@ -5,11 +5,11 @@ one:
   address: MyString
   address_complement: MyString
   phone: 
-  client_id: one
+  client: one
 
 two:
   address_description: MyString
   address: MyString
   address_complement: MyString
   phone: 
-  client_id: two
+  client: two

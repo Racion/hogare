@@ -1,5 +1,5 @@
 class Service < ApplicationRecord
-  belongs_to :order_id
-  belongs_to :employee_id
-  belongs_to :client_id
+  belongs_to :order
+  belongs_to :employee
+  belongs_to :client
 end
