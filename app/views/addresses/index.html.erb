@@ -1,0 +1,30 @@
+<div class="container">
+  <h1>Tus direcciones</h1>
+  <div class="container">
+    <table>
+      <thead>
+        <tr>
+          <th>Descripción</th>
+          <th>Dirección</th>
+          <th>Complemento</th>
+          <th>Teléfono</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @addresses.each do |address|%>
+          <tr>
+            <td><%= address.address_description%></td>
+            <td><%= address.address%></td>
+            <td><%= address.address_complement%></td>
+            <td><%= address.phone%></td>
+            <td>
+              <%= link_to edit_address_path(address.id), class: 'button is-success is-small' do %>
+                <i class="fas fa-indent"></i>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
