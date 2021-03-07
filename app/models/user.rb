@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_one :client
   has_one :employee
 
+  after_create :create_client
+
   validates :first_name, presence: true, length: { maximum:50 }
   validates :last_name, presence: true, length: { maximum:50 }
   validates :dni, presence: true
@@ -16,7 +18,7 @@ class User < ApplicationRecord
 
   def create_client  
     if employee.blank? && admin.blank?
-      client ||= Client.create(user_id: id)
+      client ||= Client.create(user: id)
     end
   end
 

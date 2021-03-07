@@ -8,22 +8,16 @@
       <div id="formcolums">
         <div class="column">
           <div class="form">
-            <div class="field">
-              <%= f.label :email, class:"label" %>
-              <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"Email", class:"input" %>
-            </div>
+            
 
             <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
               <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
             <% end %>
 
+            
             <div class="field">
-              <%= f.label "Contraseña" , class:"label" %> <i>(Déjelo en blanco si no quiere cambiarlo)</i><br />
-              <%= f.password_field :password, autocomplete: "new-password", placeholder:"Contraseña", class:"input" %>
-              <% if @minimum_password_length %>
-                <br />
-                <em><%= @minimum_password_length %> Caracteres mínimos</em>
-              <% end %>
+              <%= f.label 'Teléfono', class:"label" %>
+              <%= f.text_field :phone, autocomplete: "phone", placeholder:"Phone", class:"input" %>
             </div>
 
             <div class="field">
@@ -36,9 +30,6 @@
               <%= f.password_field :current_password, autocomplete: "current-password", placeholder:"Contraseña", class:"input" %>
             </div>
 
-            <div class="actions">
-              <%= f.submit "Editar", id:"formbutton", class:"button is-primary" %>
-            </div>
           </div>
         </div>
 
@@ -49,8 +40,17 @@
           <div class="form">
 
             <div class="field">
-              <%= f.label 'Teléfono', class:"label" %>
-              <%= f.text_field :phone, autocomplete: "phone", placeholder:"Phone", class:"input" %>
+              <%= f.label :email, class:"label" %>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"Email", class:"input" %>
+            </div>
+
+            <div class="field">
+              <%= f.label "Contraseña" , class:"label" %> <i>(Déjelo en blanco si no quiere cambiarlo)</i><br />
+              <%= f.password_field :password, autocomplete: "new-password", placeholder:"Contraseña", class:"input" %>
+              <% if @minimum_password_length %>
+                <br />
+                <em><%= @minimum_password_length %> Caracteres mínimos</em>
+              <% end %>
             </div>
 
             <div class="field">
@@ -60,12 +60,16 @@
           </div>
         </div>
       </div>
+
+      <div class="actions">
+        <%= f.submit "Editar", id:"formbutton", class:"button is-primary" %>
+      </div><br>
+
+      <h3>Deseas cancelar tu cuenta?</h3>
+      
+      <p><%= button_to "Cancela mi cuenta", registration_path(resource_name), data: { confirm: "Estas seguro de cancelar tu cuenta?" }, method: :delete, class:"button is-danger" %></p>
+      
+      <%= link_to "Atras", :back %>
     </div>
   </div>
 <% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
