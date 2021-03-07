@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!
   
   def new
-    @order = Order.
+    @order = Order.new
   end
 
   def show
