@@ -2,7 +2,9 @@ class AddressesController < ApplicationController
   before_action :authenticate_user!
 
   def index 
-    @addresses = current_user.address
+    @usuario = current_user.client
+    #TODO: Revisar la relacion entre usuario y cliente para poder traer el id del current_user que matchea el cliente y buscar direcciones por ese id
+    @addresses = Address.where('client_id = ?', @usuario.id) 
   end
 
   def new
