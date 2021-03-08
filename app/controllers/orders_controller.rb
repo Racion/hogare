@@ -17,10 +17,10 @@ class OrdersController < ApplicationController
     @order = current_user.orders.build(order_params)
     if @order.save
       flash[:success] = 'orden creada con exito!'
-      redirect_to orders_new_path
+      redirect_to 'index'
     else
       flash.now[:danger] = 'Informacion invalida'
-      render orders_new_path
+      render 'new'
     end
   end
 
