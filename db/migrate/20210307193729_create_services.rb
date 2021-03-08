@@ -6,7 +6,7 @@ class CreateServices < ActiveRecord::Migration[6.1]
       t.integer :price, null: false, default: 60000
       t.string :service_status, null: false, default: 'Creado'
       t.references :order, null: false, foreign_key: true
-      t.references :employee, null: false, foreign_key: true
+      t.references :employee, foreign_key: true
       t.references :client, null: false, foreign_key: true
 
       t.timestamps

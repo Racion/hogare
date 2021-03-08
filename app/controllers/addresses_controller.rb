@@ -1,13 +1,12 @@
 class AddressesController < ApplicationController
   before_action :authenticate_user!
-  #TODO: Cambiar de current_user a client id ya que las relaciones van con el client id no con current_user
-  # TODO: obtener el id de la tabla cliente segun el current_user para poder guardarlo con su referencia
+
   def index 
-    @addresses = Address.where('client_id = ?', current_user.client.id) 
+    @addresses = current_user.client.address
   end
 
   def new
-    @address = Address.new
+    @address = current_user.client.address.new
   end
 
   def create 
@@ -36,8 +35,8 @@ class AddressesController < ApplicationController
     end
   end
 
+  private
 
-  protected
   def address_params
     params.require(:address).permit(:address_description, :address, :address_complement, :phone)
   end
