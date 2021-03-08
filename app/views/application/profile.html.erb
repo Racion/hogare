@@ -10,7 +10,7 @@
             </article>
 
             <div class="tile is-parent">
-                <article class="tile is-child notification is-primary ">
+                <article id="profile" class="tile is-child notification is-primary ">
                     <div class="content">
                         <div class="tittle">
                             <%= current_user.first_name %>, <%= current_user.last_name %>
@@ -20,9 +20,6 @@
                         </div>
                         <div class="content">
                             <%= current_user.email %>
-                        </div>
-                        <div class="content">
-                            <%= current_user.address %>
                         </div>
                     </div>
                 </article>

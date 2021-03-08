@@ -21,7 +21,7 @@
                 <td><%= address.phone%></td>
                 <td>
                   <%= link_to edit_address_path(address.id), class: 'button is-success is-small' do %>
-                    <i class="fas fa-indent"></i>
+                    <i class="fas fa-indent">Editar</i>
                   <% end %>
                 </td>
               </tr>
@@ -31,7 +31,7 @@
       </div>
 
       
-      <%= link_to 'Nueva Dirección', new_address_path, class:"button is-primary" %>
+      <%= link_to 'Nueva Dirección', new_address_path, id:"newdirectionbutton", class:"button is-primary" %>
     </div>
   </div>
 </div>

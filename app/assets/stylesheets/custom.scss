@@ -20,6 +20,7 @@
 .box{
     display: flex !important;
     flex-direction: column;
+    align-items: center;
 }
 .actions{
     display: flex;
@@ -53,6 +54,7 @@
     }
     #buttons{
         background-color: #2AE8DA !important;
+
     }
     #drop:hover{
         background-color: #A3EAE9 !important;
@@ -101,6 +103,7 @@
 }
 .notification{
     border-top-left-radius: 0px !important;
+    color: #4a4a4a !important;
 }
 .panel{
     width: 12rem;
@@ -108,4 +111,37 @@
     .panel-heading{
         border-top-right-radius: 0px !important;
     }
+}
+#profile{
+    color: white !important;
+}
+/*---------------------------------------------------------- FOOTER ----------------------------------------------------------  */
+
+#formbutton{
+    width: max-content;
+}
+
+#buttonbox{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    align-items: center;
+}
+
+#newdirectionbutton{
+    margin-top: 20px;
+}
+
+#cancelaccount{
+    margin-top: 30px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    align-items: center;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

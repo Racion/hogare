@@ -53,23 +53,19 @@
               <% end %>
             </div>
 
-            <div class="field">
-              <%= f.label 'Dirección', class:"label" %>
-              <%= f.text_area :address, placeholder:"Dirección", class:"input" %>
-            </div>
           </div>
         </div>
       </div>
-
-      <div class="actions">
-        <%= f.submit "Editar", id:"formbutton", class:"button is-primary" %>
-      </div><br>
-
-      <h3>Deseas cancelar tu cuenta?</h3>
-      
-      <p><%= button_to "Cancela mi cuenta", registration_path(resource_name), data: { confirm: "Estas seguro de cancelar tu cuenta?" }, method: :delete, class:"button is-danger" %></p>
-      
-      <%= link_to "Atras", :back %>
+      <div id="buttonbox">
+        <div class="actions">
+          <%= f.submit "Editar", id:"formbutton", class:"button is-primary" %>
+        </div>
+        <div id="cancelaccount">
+          <h3>Deseas cancelar tu cuenta?</h3>
+          <p><%= button_to "Cancela mi cuenta", registration_path(resource_name), data: { confirm: "Estas seguro de cancelar tu cuenta?" }, method: :delete, class:"button is-danger" %></p>
+        </div>
+        <%= link_to "Atras", :back %>
+      </div>
     </div>
   </div>
 <% end %>
