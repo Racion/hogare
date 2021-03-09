@@ -1,0 +1,18 @@
+
+<%= form_with(model: @service) do |f|%>
+  <div class="field">
+    <%= f.label :service_description, 'Descripción del Servicio', class: 'label' %>
+    <%= f.text_area :service_description, class: 'input', required: true, placeholder: 'Descripción...' %>
+  </div>
+  <div class="field">
+    <%= f.label :service_date, 'Fecha Del Servicio', class: 'label' %>
+    <%= f.date_field :service_date, class: 'input', required: true%>
+  </div>
+  <div class="field">
+    <%= f.label :address_id,'Dirección', class: 'label' %>
+    <%= f.collection_select(:address_id, current_user.client.addresses.all, :id, :address_description, :prompt => 'Seleccionar...') %>
+  </div>
+  <div class="actions">
+    <%= f.submit  id:"formbutton", class: 'button is-primary' %>
+  </div>
+<% end %>

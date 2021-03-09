@@ -63,8 +63,10 @@ ActiveRecord::Schema.define(version: 2021_03_07_193729) do
     t.integer "order_id", null: false
     t.integer "employee_id"
     t.integer "client_id", null: false
+    t.integer "address_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["address_id"], name: "index_services_on_address_id"
     t.index ["client_id"], name: "index_services_on_client_id"
     t.index ["employee_id"], name: "index_services_on_employee_id"
     t.index ["order_id"], name: "index_services_on_order_id"
@@ -92,6 +94,7 @@ ActiveRecord::Schema.define(version: 2021_03_07_193729) do
   add_foreign_key "clients", "users"
   add_foreign_key "employees", "users"
   add_foreign_key "orders", "clients"
+  add_foreign_key "services", "addresses"
   add_foreign_key "services", "clients"
   add_foreign_key "services", "employees"
   add_foreign_key "services", "orders"
