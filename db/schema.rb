@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 2021_03_07_193729) do
     t.integer "price", default: 60000, null: false
     t.string "service_status", default: "Creado", null: false
     t.integer "order_id", null: false
-    t.integer "employee_id", null: false
+    t.integer "employee_id"
     t.integer "client_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
