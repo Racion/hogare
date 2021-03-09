@@ -6,5 +6,5 @@ class Order < ApplicationRecord
   validates :client_id, presence: true
   
   #Relationships
-  has_many :service
+  has_many :services
 end
