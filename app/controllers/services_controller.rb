@@ -5,9 +5,9 @@ class ServicesController < ApplicationController
   # TODO: Faltan acciones y revisar que funcione
   def index
     @services = if current_user.admin
-                  Service.all
+                  Service.all.page params[:page]
                 else
-                  current_user.client.services
+                  current_user.client.services.page params[:page]
                 end
   end
 

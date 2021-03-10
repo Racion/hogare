@@ -1,7 +1,11 @@
 <div class="container">
   <div class="box">
     <div class="container">
-      <h1 class="tittle">Tus Servicios</h1></br>
+      <% if current_user.admin.present? %>
+        <h1 class="tittle">Servicios</h1></br>
+      <% else %>
+        <h1 class="tittle">Tus Servicios</h1></br>
+      <% end %>
       <div class="container">
         <table class="table is-striped">
           <thead>
@@ -37,6 +41,6 @@
         </table>
       </div>
     </div>
-  </div>
-</div>
+    </div>
+    <%= paginate @services %>
 
