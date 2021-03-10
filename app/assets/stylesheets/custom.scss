@@ -10,6 +10,10 @@
     margin-bottom: 2em;
     max-width: 35rem;
 }
+.minimessage{
+    display: flex;
+    align-items: center;
+}
 #formcolums{
     display: flex;
     flex-direction: row-reverse
@@ -115,7 +119,7 @@
 #profile{
     color: white !important;
 }
-/*---------------------------------------------------------- FOOTER ----------------------------------------------------------  */
+/*---------------------------------------------------------- BUTTONS ----------------------------------------------------------  */
 
 #formbutton{
     width: max-content;

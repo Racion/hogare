@@ -6,7 +6,7 @@ class User < ApplicationRecord
          
   # Relationships between roles
   has_one :admin
-  has_one :client
+  has_one :client, dependent: :destroy
   has_one :employee
 
   after_create :create_client

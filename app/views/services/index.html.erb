@@ -1,1 +1,42 @@
-<h1>guardado...</h1>
+<div class="container">
+  <div class="box">
+    <div class="container">
+      <h1 class="tittle">Tus Servicios</h1></br>
+      <div class="container">
+        <table class="table is-striped">
+          <thead>
+            <tr>
+                <th>Descripción</th>
+                <th>Dirección</th>
+                <th>Fecha</th>
+                <th>Estado</th>
+                <th>Empleado</th>
+                <% if current_user.admin.present? %>
+                    <th>Cliente</th>
+                    <th> ID del Cliente</th>
+                <% end %> 
+                <th>Fecha de creacion</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @services.each do |s|%>
+              <tr>
+                <td><%= s.service_description%></td>
+                <td><%= s.address.address_description%></td>
+                <td><%= s.service_date%></td>
+                <td><%= s.service_status%></td>
+                <td><%= s.employee%></td>
+                <% if current_user.admin.present? %>
+                    <td><%= s.client.user.first_name%></td>
+                    <td><%= s.client.id%></td>
+                <% end %>  
+                <td><%= s.created_at.strftime("%F")%></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
