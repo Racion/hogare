@@ -36,9 +36,6 @@
       <% end %>
     </div>
 
-   
-
-
     <% unless current_user.blank? %>
       <div class="navbar-end" >
       
@@ -47,11 +44,13 @@
         <img class="cartbutton" src=" https://media.discordapp.net/attachments/816001549146914886/817175316400570388/Carrito_2.png?width=473&height=473">
         </a>
 
-        <div class="buttons">   
-        <%= link_to 'Mi Perfil', application_profile_path, class:"button is-light" %>
+        <div class="buttons">  
+          <% if current_user.admin.present? %>
+            <%= link_to 'Admin', application_admin_profile_path, class:"button is-info" %>
+          <% end %>
+          <%= link_to 'Mi Perfil', application_profile_path, class:"button is-light" %>
           <%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete, class:"button is-primary" %>
         </div>
-        
       </div>
     </div>
 
