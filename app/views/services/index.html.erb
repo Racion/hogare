@@ -1,0 +1,35 @@
+before_action :authenticate_user!
+
+    <div class="container">
+        <div class="box">
+            <div class="container">
+            <h1 class="tittle">Servicios</h1></br>
+            <div class="container">
+                <table class="table is-striped">
+                <thead>
+                    <tr>
+                    <th>Descripción</th>
+                    <th>Fecha</th>
+                    <th>Status</th>
+                    <th>Empleado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @services.each do |s|%>
+                    <tr>
+                        <td><%= s.service_description%></td>
+                        <td><%= s.service_date%></td>
+                        <td><%= s.service_status%></td>
+                        <td><%= s.employee%></td>
+                    </tr>
+                    <% end %>
+                </tbody>
+                </table>
+            </div>
+
+            
+            <%= link_to 'Nueva Dirección', new_address_path, id:"newdirectionbutton", class:"button is-primary" %>
+            </div>
+        </div>
+    </div>
+<% end %>

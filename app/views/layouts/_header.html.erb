@@ -50,8 +50,9 @@
         </a>
 
         <div class="buttons">   
+        <%= link_to 'Admin', application_admin_profile_path, class:"button is-info" %>
         <%= link_to 'Mi Perfil', application_profile_path, class:"button is-light" %>
-          <%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete, class:"button is-primary" %>
+        <%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete, class:"button is-primary" %>
         </div>
         
       </div>

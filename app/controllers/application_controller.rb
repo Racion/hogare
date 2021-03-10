@@ -3,7 +3,6 @@ class ApplicationController < ActionController::Base
   def home
   end
 
-
   private
 
   def configure_permited_parameters
