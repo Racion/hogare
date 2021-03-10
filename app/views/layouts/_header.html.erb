@@ -10,29 +10,32 @@
       <%=link_to "Inicio", root_path, class:"navbar-item" %>
 
       <% unless current_user.blank? %>
-       <%= link_to 'Contratar Servicio', new_service_path, class:"navbar-item" %>
-    
+      <% if current_user.admin.present? %>
         <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">
-            More
-          </a>
+            <a class="navbar-link">
+              More
+            </a>
 
-          <div class="navbar-dropdown">
-            <a class="navbar-item" id="drop">
-              About
-            </a>
-            <a class="navbar-item" id="drop">
-              Jobs
-            </a>
-            <a class="navbar-item" id="drop">
-              Contact
-            </a>
-            <hr class="navbar-divider">
-            <a class="navbar-item" id="drop">
-              Report an issue
-            </a>
+            <div class="navbar-dropdown">
+              <a class="navbar-item" id="drop">
+                About
+              </a>
+              <a class="navbar-item" id="drop">
+                Jobs
+              </a>
+              <a class="navbar-item" id="drop">
+                Contact
+              </a>
+              <hr class="navbar-divider">
+              <a class="navbar-item" id="drop">
+                Report an issue
+              </a>
+            </div>
           </div>
-        </div>
+        <% else %>
+        <%= link_to 'Contratar Servicio', new_service_path, class:"navbar-item" %>
+        <% end %>
+        
       <% end %>
     </div>
 
@@ -40,15 +43,15 @@
       <div class="navbar-end" >
       
       <div class="navbar-item" id="buttons">
-        <a class="navbar-item" href="/orders/#{@orders.last}" id="buttons">
-        <img class="cartbutton" src=" https://media.discordapp.net/attachments/816001549146914886/817175316400570388/Carrito_2.png?width=473&height=473">
-        </a>
-
         <div class="buttons">  
           <% if current_user.admin.present? %>
             <%= link_to 'Admin', application_admin_profile_path, class:"button is-info" %>
+          <% else %>
+            <a class="navbar-item" href="/orders/#{@orders.last}" id="buttons">
+              <img class="cartbutton" src=" https://media.discordapp.net/attachments/816001549146914886/817175316400570388/Carrito_2.png?width=473&height=473">
+            </a>
+            <%= link_to 'Mi Perfil', application_profile_path, class:"button is-light" %>
           <% end %>
-          <%= link_to 'Mi Perfil', application_profile_path, class:"button is-light" %>
           <%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete, class:"button is-primary" %>
         </div>
       </div>

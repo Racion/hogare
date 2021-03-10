@@ -9,6 +9,10 @@
     <%= f.date_field :service_date, class: 'input', required: true%>
   </div>
   <div class="field">
+    <div class="minimessage">
+      <em >Si no tienes una Dirección registrada haz click  </em>
+      <%= link_to 'Aqui', new_address_path, class:"navbar-item" %>
+    </div>
     <%= f.label :address_id,'Dirección', class: 'label' %>
     <%= f.collection_select(:address_id, current_user.client.addresses.all, :id, :address_description, :prompt => 'Seleccionar...') %>
   </div>
