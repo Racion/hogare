@@ -1,0 +1,48 @@
+<div class="container">
+
+    <div class="card">
+        <div class="card-content">
+            <div class="media">
+            <div class="media-left">
+                <figure class="image is-48x48">
+                <img src="https://media.discordapp.net/attachments/816001549146914886/816001670500712478/Hogare-Logo.png" style="background: #c1edf9; border-radius: 50%;" alt="Placeholder image">
+                </figure>
+            </div>
+            <div class="media-content">
+                <p class="title is-4">Servicio</p>
+                <p class="subtitle is-6"><%= @service.service_description %></p>
+            </div>
+            </div>
+
+            <table class="table is-striped">
+            <thead>
+                <tr>
+                    <th>Dirección</th>
+                    <th></th>
+                    <th>Fecha</th>
+                    <th>Empleado</th>
+                    <th>Estado</th>
+                    <th>Fecha de servicio</th>
+                    <th>Fecha de creacion</th>
+                    <th>#ID</th>
+                </tr>
+            </thead>
+            <tbody> 
+                <tr>
+                    <td><%= @service.address.address%></td>
+                    <td><%= @service.address.address_complement%></td>
+                    <td><%= @service.service_date%></td>
+                    <td><%= @service.employee%></td>
+                    <td><%= @service.service_status%></td>
+                    <td><%= @service.service_date.strftime("%F")%></td>
+                    <td><%= @service.created_at.strftime("%F")%></td>
+                    <td><%= @service.id%></td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+    </div>
+
+    <%= link_to "Atras", :back %>
+
+</div> 
