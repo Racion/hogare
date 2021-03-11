@@ -14,12 +14,11 @@
                 <th>Dirección</th>
                 <th>Fecha</th>
                 <th>Estado</th>
-                <th>Empleado</th>
                 <% if current_user.admin.present? %>
                     <th>Cliente</th>
                     <th> ID del Cliente</th>
                 <% end %> 
-                <th>Fecha de creacion</th>
+                <th>Fecha de servicio</th>
             </tr>
           </thead>
           <tbody>
@@ -29,12 +28,15 @@
                 <td><%= s.address.address_description%></td>
                 <td><%= s.service_date%></td>
                 <td><%= s.service_status%></td>
-                <td><%= s.employee%></td>
                 <% if current_user.admin.present? %>
                     <td><%= s.client.user.first_name%></td>
                     <td><%= s.client.id%></td>
                 <% end %>  
-                <td><%= s.created_at.strftime("%F")%></td>
+                <td><%= s.service_date.strftime("%F")%></td>
+                <td>
+                  <%=link_to "Detalles", service_path(s.id) %>
+                </td>
+     
               </tr>
             <% end %>
           </tbody>

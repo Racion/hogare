@@ -26,6 +26,15 @@ class ServicesController < ApplicationController
     end
   end
 
+  def show
+    @service = if current_user.admin
+      Service.all.find(params[:id])
+    else
+      current_user.client.services.find(params[:id])
+    end
+  end
+
+
   private
 
   def service_params
