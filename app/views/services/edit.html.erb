@@ -1,18 +1,10 @@
 <% if current_user.admin.present? %>
     <div class="container">
-        <div class="box">
-            <div class="form">
-                <%= form_with(model: @service) do |f|%>
-                    <div class="field">
-                        <%= f.label :employee,'Asignar Empleado', class: 'label' %>
-                        <%= f.collection_select(:employee_id, Employee.all, :id, :id, :prompt => 'Seleccionar...') %>
-                        </div>
-                        <div class="actions">
-                            <%= f.submit "Asignar", id:"formbutton", class: 'button is-primary' %>
-                        </div>
-                <% end %>
-            </div>
+    <div class="box">
+        <div class="form">
+            <h1 class="tittle">Asignar empleados</h1></br>
+            <%= render 'form'%></div>
         </div>
-        <%= link_to "Atras", :back %>
-    </div
+    </div>
+    </div>
 <% end %>
