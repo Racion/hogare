@@ -34,6 +34,16 @@ class ServicesController < ApplicationController
     end
   end
 
+  def update
+    @service = Service.find(params[:id])
+    if @service.update(service_params)
+     flash[:success] = 'Registro actualizado'
+     redirect_to services_path
+    else
+     render index
+    end
+   end
+
 
   private
 

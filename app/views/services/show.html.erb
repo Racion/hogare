@@ -37,6 +37,11 @@
                     <td><%= @service.service_date.strftime("%F")%></td>
                     <td><%= @service.created_at.strftime("%F")%></td>
                     <td><%= @service.id%></td>
+                    <% if current_user.admin.present? %>
+                        <td>
+                        <%=link_to "Asignar", edit_service_path(@service.id) %>
+                        </td>
+                    <% end %> 
                 </tr>
             </tbody>
         </table>
