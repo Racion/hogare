@@ -36,6 +36,11 @@
                 <td>
                   <%=link_to "Detalles", service_path(s.id) %>
                 </td>
+                <% if current_user.admin.present? %>
+                    <td>
+                      <%=link_to "Asignar", edit_service_path(s.id) %>
+                    </td>
+                <% end %>  
      
               </tr>
             <% end %>

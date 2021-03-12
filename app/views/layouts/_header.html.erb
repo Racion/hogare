@@ -46,6 +46,8 @@
         <div class="buttons">  
           <% if current_user.admin.present? %>
             <%= link_to 'Admin', application_admin_profile_path, class:"button is-info" %>
+          <% elsif current_user.employee.present?%>
+            <%= link_to 'Employee', application_employee_profile_path, class:"button is-warning" %>
           <% else %>
             <a class="navbar-item" href="/orders/#{@orders.last}" id="buttons">
               <img class="cartbutton" src=" https://media.discordapp.net/attachments/816001549146914886/817175316400570388/Carrito_2.png?width=473&height=473">
