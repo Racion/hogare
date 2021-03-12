@@ -1,21 +1,39 @@
 
 <%= form_with(model: @service) do |f|%>
-  <div class="field">
-    <%= f.label :service_description, 'Descripción del Servicio', class: 'label' %>
-    <%= f.text_area :service_description, class: 'input', required: true, placeholder: 'Descripción...' %>
-  </div>
-  <div class="field">
-    <%= f.label :service_date, 'Fecha Del Servicio', class: 'label' %>
-    <%= f.date_field :service_date, class: 'input', required: true%>
-  </div>
-  <div class="field">
-    <div class="minimessage">
-      <em >Si no tienes una Dirección registrada haz click  </em>
-      <%= link_to 'Aqui', new_address_path, class:"navbar-item" %>
+
+  <% if current_user.client.present? %>
+    <div class="field">
+      <%= f.label :service_description, 'Descripción del Servicio', class: 'label' %>
+      <%= f.text_area :service_description, class: 'input', required: true, placeholder: 'Descripción...' %>
     </div>
-    <%= f.label :address_id,'Dirección', class: 'label' %>
-    <%= f.collection_select(:address_id, current_user.client.addresses.all, :id, :address_description, :prompt => 'Seleccionar...') %>
-  </div>
+    
+    <div class="field">
+      <%= f.label :service_date, 'Fecha Del Servicio', class: 'label' %>
+      <%= f.date_field :service_date, class: 'input', required: true%>
+    </div>
+
+    <div class="field">
+      <div class="minimessage">
+        <em >Si no tienes una Dirección registrada haz click  </em>
+        <%= link_to 'Aqui', new_address_path, class:"navbar-item" %>
+      </div>
+      <%= f.label :address_id,'Dirección', class: 'label' %>
+      <%= f.collection_select(:address_id, current_user.client.addresses.all, :id, :address_description, :prompt => 'Seleccionar...') %>
+    </div>
+  <% end %>
+
+  <% if current_user.admin.present? %>
+    <div class="field">
+      <%= f.label :employee_id,'Asignar Empleado', class: 'label' %>
+      <%= f.collection_select(:employee_id, Employee.all, :id, :id, :prompt => 'Seleccionar...') %>
+    </div>
+
+    <div class="field">
+        <%= f.label 'Asignar Estado', class: 'label' %>
+        <%= f.select :service_status, [['Asignado', 'Asignado'], ['Aprovado', 'Aprovado']], class:"select is-rounded", selected:'Creado' %>
+      </div>
+  <% end %>
+  
   <div class="actions">
     <%= f.submit  id:"formbutton", class: 'button is-primary' %>
   </div>

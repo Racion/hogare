@@ -34,13 +34,17 @@ class ServicesController < ApplicationController
     end
   end
 
+  def edit 
+    @service = Service.find(params[:id])
+  end
+
   def update
     @service = Service.find(params[:id])
     if @service.update(service_params)
      flash[:success] = 'Registro actualizado'
      redirect_to services_path
     else
-     render index
+      render 'edit'
     end
    end
 
@@ -48,7 +52,7 @@ class ServicesController < ApplicationController
   private
 
   def service_params
-    params.require(:service).permit(:service_description, :service_date, :address_id)
+    params.require(:service).permit(:service_description, :employee_id, :service_status, :service_date, :address_id)
   end
 
   def set_order

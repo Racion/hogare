@@ -8,9 +8,10 @@ class Order < ApplicationRecord
   def checkout(order_id)
       @order = current_user.client.orders.where(order_id: order_id)
       @order.update(order_status:  "Procesando")
-  End
+  end
   
   #Relationships
   has_many :services
+  
 end
  
