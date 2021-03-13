@@ -6,6 +6,8 @@ class ServicesController < ApplicationController
   def index
     @services = if current_user.admin
                   Service.all.page params[:page]
+                elsif current_user.employee
+                  current_user.employee.services.where(employee_id: current_user.employee.id).page params[:page]
                 else
                   current_user.client.services.page params[:page]
                 end
@@ -28,26 +30,25 @@ class ServicesController < ApplicationController
 
   def show
     @service = if current_user.admin
-      Service.all.find(params[:id])
-    else
-      current_user.client.services.find(params[:id])
-    end
+                 Service.all.find(params[:id])
+               else
+                 current_user.client.services.find(params[:id])
+               end
   end
 
-  def edit 
+  def edit
     @service = Service.find(params[:id])
   end
 
   def update
     @service = Service.find(params[:id])
     if @service.update(service_params)
-     flash[:success] = 'Registro actualizado'
-     redirect_to services_path
+      flash[:success] = 'Registro actualizado'
+      redirect_to services_path
     else
       render 'edit'
     end
-   end
-
+  end
 
   private
 
